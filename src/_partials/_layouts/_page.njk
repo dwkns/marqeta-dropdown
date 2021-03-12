@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "{{ site.name }}",
+        "url": "{{ site.baseUrl }}",
+        "logo": "{{ site.logoUrl }}",
+        "sameAs": ["{{ site.defaults.twitterUrl }}", "{{ site.defaults.linkedInURL }}", "{{ site.baseUrl }}"]
+      }
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="/assets/main.bundle.css?version={{ version }}">
+    <script defer src="/assets/main.bundle.js?version={{ version }}"></script>
+    <title>{{ title }}</title>
+
+  </head>
+  <body class="{{ 'debug-screens' if utils.devMode }}">
+   {{ content | safe }}
+  </body>
+</html>

@@ -1,0 +1,9 @@
+---
+layout: _page.njk
+---
+{% include '_includes/_header.njk' %}    
+<main class="container mx-auto px-4">
+<h1 class="text-4xl my-4">Heading from _main.njk template</h1>
+{{ content | safe }}
+</main>
+{% include '_includes/_footer.njk' %} 

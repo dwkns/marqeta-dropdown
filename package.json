@@ -1,0 +1,48 @@
+{
+  "name": "dwkns-playground",
+  "author": "dazza",
+  "license": "MIT",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production npm-run-all clean -p build:*",
+    "build:11ty": "eleventy --quiet",
+    "build:rollup": "rollup -c",
+    "clean": "rimraf dist",
+    "start": "npm-run-all clean build:* -p dev:*",
+    "dev:11ty": "eleventy --serve --quiet",
+    "dev:rollup": "rollup -c -w",
+    "bs": "cross-env NODE_ENV=production npm-run-all clean -p build:* serve",
+    "serve:": "npx serve dist"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@rollup/plugin-replace": "^2.3.4",
+    "alpinejs": "^2.8.0",
+    "autoprefixer": "^10.1.0",
+    "cross-env": "^7.0.3",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.2",
+    "postcss-import": "^14.0.0",
+    "postcss-nested": "^5.0.3",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.35.1",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-svg": "^2.0.0",
+    "eslint": "^7.20.0",
+    "markdown-it": "^12.0.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "tailwindcss": "^2.0.2",
+    "tailwindcss-debug-screens": "^2.0.0"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "env": {
+      "commonjs": true,
+      "node": true,
+      "browser": true,
+      "es6": true
+    }
+  }
+}
