@@ -1,9 +1,33 @@
 ---
 layout: _page.njk
 ---
-{% include '_includes/_header.njk' %}    
-<main class="container mx-auto px-4">
-<h1 class="text-4xl my-4">Heading from _main.njk template</h1>
+<main class="container mx-auto">
+  <div class=" p-10">
+    <ul class="flex-row">
+      <a href="/" class="cursor-pointer underline"><li class="">20px padding</li></a>
+      <a href="/200" class="cursor-pointer underline"><li class="">200px padding</li></a>
+    </ul>
+    <h1 class="text-2xl mt-4">{{ h1 }}</h1>
+  </div>
+  <div style="min-height: 1000px;"></div>
+  <div class="mx-auto text-center">
+    <div x-data="{ open: false, country: '🇬🇧 United Kingdom' }" @keydown.escape.stop="open = false" @click.away="open = false" class="relative inline-block text-left w-64">
+      <div class="">
+        <button id="selector" type="button" class="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="options-menu" @click="open = !open" aria-haspopup="true" x-bind:aria-expanded="open">
+          <span x-text="country">Options</span>
+          <svg class="-mr-1 ml-2 h-5 w-5" x-description="Heroicon name: solid/chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <div x-description="Dropdown menu, show/hide based on menu state." x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 -mt-40 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu" style="display: none;">
+        <div class="py-1" role="none">
+          <a id="uk-option" href="#" @click="open = false, country = '🇬🇧 United Kingdom'" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">🇬🇧 United Kingdom</a>
+          <a id="us-option" href="#" @click="open = false, country = '🇺🇸 United States'" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">🇺🇸 United States</a>
+          <a id="au-option" href="#" @click="open = false, country = '🇦🇺 Australia'" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">🇦🇺 Australia</a>
+        </div>
+      </div>
+    </div>
+  </div>
 {{ content | safe }}
 </main>
-{% include '_includes/_footer.njk' %} 
