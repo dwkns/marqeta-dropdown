@@ -1,5 +1,5 @@
 import postcss from 'rollup-plugin-postcss';
-import terser  from 'rollup-plugin-terser';
+import { terser } from "rollup-plugin-terser";
 import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import svg from 'rollup-plugin-svg';
